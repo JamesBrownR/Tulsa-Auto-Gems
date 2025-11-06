@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulsa Auto Gems - Expert Auto Repair | Honda, Acura, Toyota, Lexus</title>
+    <meta name="description" content="Family-owned auto repair shop in Tulsa specializing in Honda, Acura, Toyota, Lexus. Expert mechanical repairs, timing belts, brakes, tune-ups & more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2e8d8d;
+            --dark-blue: #1a5252;
+            --light-gray: #f4f4f4;
+            --dark-gray: #333;
+            --white: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        /* Header - Phone Bar */
+        .top-bar {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+            margin-top: 45px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li:before {
+            content: "✓ ";
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            padding: 25px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+        }
+
+        .stars {
+            color: #ffa500;
+            font-size: 1.2rem;
+        }
+
+        .review-body {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .show-more-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background: var(--dark-blue);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 30px;
+            border: 2px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark-blue);
+        }
+
+        .business-info {
+            background: var(--white);
+            padding: 30px;
+            border: 2px solid var(--border-color);
+        }
+
+        .business-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item strong {
+            color: var(--dark-blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .map-container {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 2px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Phone Bar -->
+    <div class="top-bar">
+        <a href="tel:19188149030">📞 (918) 814-9030 - Call Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tulsa Auto Gems</h1>
+            <p>Family-Owned Expert Auto Repair<br>Specializing in Honda, Acura, Toyota & Lexus</p>
+            <a href="#contact" class="cta-button">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>Welcome to Tulsa Auto Gems</h2>
+            <div class="about-content">
+                <p>We are a family-owned leading competitor in automotive repair that delivers high-quality work with NO disappointments. Our team specializes in mechanical repairs for Honda, Acura, Toyota, Lexus, and many other imports.</p>
+                <p>With years of experience and a commitment to excellence, we offer a wide variety of services including tune-ups, major suspension work, AC diagnostics and repair, brakes, timing belt and water pump installation, and much more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Expert Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Timing Belt Services</h3>
+                    <ul>
+                        <li>Full timing belt kit replacements</li>
+                        <li>OEM quality parts guaranteed</li>
+                        <li>Water pump installation</li>
+                        <li>Expert diagnostics</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Suspension & Brakes</h3>
+                    <ul>
+                        <li>Shock and strut installation</li>
+                        <li>Complete brake service</li>
+                        <li>Major suspension work</li>
+                        <li>Alignment services</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Engine & Performance</h3>
+                    <ul>
+                        <li>Complete tune-ups</li>
+                        <li>Engine diagnostics</li>
+                        <li>Oil changes & maintenance</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>AC & Climate Control</h3>
+                    <ul>
+                        <li>AC diagnostics and repair</li>
+                        <li>Refrigerant recharge</li>
+                        <li>Compressor replacement</li>
+                        <li>Climate control systems</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Electrical Systems</h3>
+                    <ul>
+                        <li>Battery testing & replacement</li>
+                        <li>Alternator & starter repair</li>
+                        <li>Electrical diagnostics</li>
+                        <li>Lighting systems</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>General Maintenance</h3>
+                    <ul>
+                        <li>Regular maintenance schedules</li>
+                        <li>Fluid changes & checks</li>
+                        <li>Belt & hose replacement</li>
+                        <li>Pre-purchase inspections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be inserted here by JavaScript -->
+            </div>
+            <button class="show-more-btn hidden" id="showMoreBtn" onclick="showMoreReviews()">
+                Show More Reviews
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us Today</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="business-info">
+                    <h3>Business Information</h3>
+                    <div class="info-item">
+                        <strong>📍 Address</strong>
+                        <p>7739 E 38th St # A<br>Tulsa, OK 74145</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Phone</strong>
+                        <p><a href="tel:19188149030" style="color: var(--primary-blue); text-decoration: none;">(918) 814-9030</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>🕒 Business Hours</strong>
+                        <ul class="hours-list">
+                            <li><span>Monday</span><span>10 AM - 5 PM</span></li>
+                            <li><span>Tuesday</span><span>10 AM - 5 PM</span></li>
+                            <li><span>Wednesday</span><span>10 AM - 5 PM</span></li>
+                            <li><span>Thursday</span><span>10 AM - 5 PM</span></li>
+                            <li><span>Friday</span><span>10 AM - 5 PM</span></li>
+                            <li><span>Saturday</span><span>Closed</span></li>
+                            <li><span>Sunday</span><span>Closed</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6446.763728407702!2d-95.8945528499635!3d36.10855350163998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b68d1885ca8f35%3A0x57fc9237053b6e1a!2sTulsa%20Auto%20Gems!5e0!3m2!1sen!2sus!4v1762391138166!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tulsa Auto Gems. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.google.com/maps/place/Tulsa+Auto+Gems/@36.1085535,-95.8945528,16z/data=!3m1!4b1!4m6!3m5!1s0x87b68d1885ca8f35:0x57fc9237053b6e1a!8m2!3d36.1085536!4d-95.8896873!16s%2Fg%2F11nl6kr8bw" target="_blank">Google Maps</a>
+                <a href="tel:19188149030">Call Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Family-Owned • Expert Service • Quality Guaranteed</p>
+        </div>
+    </footer>
+
+    <script>
+        // Reviews Data Array - Easy to add more reviews
+        const reviews = [
+            { name: "Sample Customer 1", rating: 5, body: "Excellent service! Omar and his team went above and beyond to fix my Honda. Highly recommend!" },
+            { name: "Sample Customer 2", rating: 5, body: "Best auto shop in Tulsa. Fair prices, honest work, and great communication throughout the repair process." },
+            { name: "Sample Customer 3", rating: 5, body: "Had my timing belt replaced here. Professional work at a reasonable price. Will definitely return!" },
+            { name: "Sample Customer 4", rating: 5, body: "Family-owned business that treats you like family. Outstanding service on my Toyota." },
+            { name: "Sample Customer 5", rating: 5, body: "Quick turnaround, quality parts, and expert technicians. Couldn't ask for more!" },
+            { name: "Sample Customer 6", rating: 5, body: "Omar is honest and knowledgeable. Fixed my AC issues quickly and explained everything clearly." },
+            { name: "Sample Customer 7", rating: 5, body: "Great experience from start to finish. My Acura runs better than ever!" },
+            { name: "Sample Customer 8", rating: 5, body: "Trustworthy shop with fair pricing. They diagnosed and fixed my suspension issues perfectly." },
+            { name: "Sample Customer 9", rating: 5, body: "Professional service and attention to detail. Will recommend to all my friends and family." },
+            { name: "Sample Customer 10", rating: 5, body: "Best mechanic I've found in Tulsa. Honest, skilled, and reasonably priced." },
+            { name: "Sample Customer 11", rating: 5, body: "Omar's expertise saved me hundreds compared to the dealer. Great work!" },
+            { name: "Sample Customer 12", rating: 5, body: "Reliable and professional. They stand behind their work 100%." }
+        ];
+
+        let currentReviewsShown = 0;
+        const reviewsPerLoad = 6;
+
+        function renderReviews(startIndex, count) {
+            const grid = document.getElementById('reviewsGrid');
+            const endIndex = Math.min(startIndex + count, reviews.length);
+            
+            for (let i = startIndex; i < endIndex; i++) {
+                const review = reviews[i];
+                const stars = '★'.repeat(review.rating);
+                
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-header">
+                        <div class="review-name">${review.name}</div>
+                        <div class="stars">${stars}</div>
+                    </div>
+                    <div class="review-body">${review.body}</div>
+                `;
+                grid.appendChild(card);
+            }
+            
+            currentReviewsShown = endIndex;
+            
+            // Update button
+            const btn = document.getElementById('showMoreBtn');
+            const remaining = reviews.length - currentReviewsShown;
+            
+            if (remaining > 0) {
+                btn.classList.remove('hidden');
+                const nextBatch = Math.min(remaining, reviewsPerLoad);
+                btn.textContent = `Show ${nextBatch} More Review${nextBatch > 1 ? 's' : ''} (${remaining} total)`;
+            } else {
+                btn.classList.add('hidden');
+            }
+        }
+
+        function showMoreReviews() {
+            renderReviews(currentReviewsShown, reviewsPerLoad);
+        }
+
+        // Initial load
+        renderReviews(0, reviewsPerLoad);
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            
+            // Here you would integrate with your email service
+            // For now, show success message
+            alert('Thank you for your message! We will contact you soon.');
+            e.target.reset();
+            
+            // TO IMPLEMENT: Connect to email service like EmailJS, Formspree, or backend API
+            console.log('Form data:', data);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
