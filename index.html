@@ -162,6 +162,7 @@
             max-width: 900px;
             margin: 0 auto;
             font-size: 1.1rem;
+            align-items: center;
             line-height: 1.8;
         }
 
@@ -429,7 +430,7 @@
 
     /* Logo in Hero Section */
     .hero-logo {
-        max-width: 200px;
+        max-width: 400px;
         margin-bottom: 20px;
         filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
     }
@@ -494,7 +495,7 @@
 <section class="hero">
     <div class="hero-content">
         <img src="Tulsa-Auto-Gems.png" alt="Tulsa Auto Gems Logo" class="hero-logo">
-        <h1>Tulsa Auto Gems</h1>
+        
         <p>Family-Owned Expert Auto Repair<br>Specializing in Honda, Acura, Toyota & Lexus</p>
         <a href="#contact" class="cta-button">Get Your Free Quote</a>
     </div>
@@ -573,41 +574,17 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
+   <section id="gallery" class="gallery">
     <div class="container">
         <h2>Our Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems1.png')">
-                <img src="Tulsa-Auto-Gems1.png" alt="Auto repair work 1">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems2.png')">
-                <img src="Tulsa-Auto-Gems2.png" alt="Auto repair work 2">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems3.png')">
-                <img src="Tulsa-Auto-Gems3.png" alt="Auto repair work 3">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems4.png')">
-                <img src="Tulsa-Auto-Gems4.png" alt="Auto repair work 4">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems5.png')">
-                <img src="Tulsa-Auto-Gems5.png" alt="Auto repair work 5">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems6.png')">
-                <img src="Tulsa-Auto-Gems6.png" alt="Auto repair work 6">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems7.png')">
-                <img src="Tulsa-Auto-Gems7.png" alt="Auto repair work 7">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems8.png')">
-                <img src="Tulsa-Auto-Gems8.png" alt="Auto repair work 8">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Tulsa-Auto-Gems9.png')">
-                <img src="Tulsa-Auto-Gems9.png" alt="Auto repair work 9">
-            </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery images will be inserted here by JavaScript -->
         </div>
+        <button class="show-more-btn hidden" id="showMoreGalleryBtn" onclick="showMoreImages()">
+            Show More Images
+        </button>
     </div>
 </section>
-
     <!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
@@ -706,6 +683,62 @@
     </footer>
 
     <script>
+
+
+        // Gallery Images Array
+const galleryImages = [
+    'Tulsa-Auto-Gems1.png',
+    'Tulsa-Auto-Gems2.png',
+    'Tulsa-Auto-Gems3.png',
+    'Tulsa-Auto-Gems4.png',
+    'Tulsa-Auto-Gems5.png',
+    'Tulsa-Auto-Gems6.png',
+    'Tulsa-Auto-Gems7.png',
+    'Tulsa-Auto-Gems8.png',
+    'Tulsa-Auto-Gems9.png'
+];
+
+let currentImagesShown = 0;
+const imagesPerLoad = 6;
+
+function renderImages(startIndex, count) {
+    const grid = document.getElementById('galleryGrid');
+    const endIndex = Math.min(startIndex + count, galleryImages.length);
+    
+    for (let i = startIndex; i < endIndex; i++) {
+        const imageSrc = galleryImages[i];
+        
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.onclick = function() { openLightbox(imageSrc); };
+        item.innerHTML = `
+            <img src="${imageSrc}" alt="Auto repair work ${i + 1}">
+        `;
+        grid.appendChild(item);
+    }
+    
+    currentImagesShown = endIndex;
+    
+    // Update button
+    const btn = document.getElementById('showMoreGalleryBtn');
+    const remaining = galleryImages.length - currentImagesShown;
+    
+    if (remaining > 0) {
+        btn.classList.remove('hidden');
+        const nextBatch = Math.min(remaining, imagesPerLoad);
+        btn.textContent = `Show ${nextBatch} More Image${nextBatch > 1 ? 's' : ''} (${remaining} total)`;
+    } else {
+        btn.classList.add('hidden');
+    }
+}
+
+function showMoreImages() {
+    renderImages(currentImagesShown, imagesPerLoad);
+}
+
+// Initialize gallery on page load
+renderImages(0, imagesPerLoad);
+        
         // Reviews Data Array - Easy to add more reviews
         const reviews = [
     {
@@ -1016,6 +1049,8 @@ function updateCloseAllButton() {
     });
 
         // Initial load
+        renderImages(0, imagesPerLoad);  // Add this line for gallery
+
 renderReviews(0, reviewsPerLoad);
 updateCloseAllButton();
 
