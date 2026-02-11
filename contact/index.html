@@ -1,0 +1,76 @@
+---
+layout: default
+title: "Contact Us - Tulsa Auto Gems"
+description: "Get in touch with Tulsa Auto Gems. Call (918) 814-9030 or visit us at 7739 E 38th St, Tulsa, OK 74145."
+---
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us Today</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <p style="color: var(--dark-gray); margin-bottom: 20px; font-size: 0.95rem;">
+                    This message goes directly to the owner's email
+                </p>
+
+                <form action="https://formspree.io/f/xjkqbnpn" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="business-info">
+                <h3>Business Information</h3>
+                <div class="info-item">
+                    <strong>📍 Address</strong>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tulsa+Auto+Gems+7739+E+38th+St+Tulsa+OK+74145" target="_blank" style="color: var(--primary-blue); text-decoration: none;">
+                            {{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}
+                        </a>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <strong>📞 Phone</strong>
+                    <p><a href="tel:{{ site.phone_link }}" style="color: var(--primary-blue); text-decoration: none;">{{ site.phone }}</a></p>
+                </div>
+                <div class="info-item">
+                    <strong>🕒 Business Hours</strong>
+                    <ul class="hours-list">
+                        <li><span>Monday</span><span>9 AM - 5 PM</span></li>
+                        <li><span>Tuesday</span><span>9 AM - 5 PM</span></li>
+                        <li><span>Wednesday</span><span>9 AM - 5 PM</span></li>
+                        <li><span>Thursday</span><span>9 AM - 5 PM</span></li>
+                        <li><span>Friday</span><span>9 AM - 5 PM</span></li>
+                        <li><span>Saturday</span><span>Closed</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6446.763720334927!2d-95.88968729999999!3d36.10855359999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b68d1885ca8f35%3A0x57fc9237053b6e1a!2sTulsa%20Auto%20Gems!5e0!3m2!1sen!2sus!4v1764194900301!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
