@@ -1,0 +1,59 @@
+# Site settings
+title: "Tulsa Auto Gems - Expert Auto Repair"
+description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acura, Toyota, Lexus. Expert mechanical repairs, timing belts, brakes, tune-ups & more."
+url: "https://www.tulsaautogems.com"
+baseurl: ""
+
+# Business information
+phone: "(918) 814-9030"
+phone_link: "+19188149030"
+email: "contact@tulsaautogems.com"
+address:
+  street: "7739 E 38th St # A"
+  city: "Tulsa"
+  state: "OK"
+  zip: "74145"
+
+# Social links
+social:
+  google_maps: "https://www.google.com/maps/place/Tulsa+Auto+Gems/@36.1085535,-95.8945528,16z"
+  facebook: "https://www.facebook.com/profile.php?id=100046606073713"
+  yelp: "https://www.yelp.com/biz/tulsa-auto-gems-tulsa"
+  mapquest: "https://www.mapquest.com/us/oklahoma/tulsa-auto-gems-429038672"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock# Site settings
+title: "Tulsa Auto Gems - Expert Auto Repair"
+description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acura, Toyota, Lexus. Expert mechanical repairs, timing belts, brakes, tune-ups & more."
+url: "https://www.tulsaautogems.com"
+baseurl: "/"
+
+# Business information
+phone: "(918) 814-9030"
+phone_link: "+19188149030"
+email: "contact@tulsaautogems.com"
+address:
+  street: "7739 E 38th St # A"
+  city: "Tulsa"
+  state: "OK"
+  zip: "74145"
+
+# Social links
+social:
+  google_maps: "https://www.google.com/maps/place/Tulsa+Auto+Gems/@36.1085535,-95.8945528,16z"
+  facebook: "https://www.facebook.com/profile.php?id=100046606073713"
+  yelp: "https://www.yelp.com/biz/tulsa-auto-gems-tulsa"
+  mapquest: "https://www.mapquest.com/us/oklahoma/tulsa-auto-gems-429038672"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
