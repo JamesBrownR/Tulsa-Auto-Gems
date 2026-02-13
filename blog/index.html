@@ -17,59 +17,32 @@ description: "Expert auto repair advice, maintenance tips, and industry news fro
         
         <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
             
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px; transition: transform 0.3s;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/timing-belt-replacement-guide" style="text-decoration: none; color: inherit;">When to Replace Your Timing Belt: A Complete Guide</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 February 10, 2026</p>
-                <p style="margin-bottom: 15px;">Learn why timing belt replacement is crucial for your Honda, Acura, Toyota, or Lexus, and when you should schedule this important service.</p>
-                <a href="/blog/timing-belt-replacement-guide" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
-            
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/brake-maintenance-tips" style="text-decoration: none; color: inherit;">5 Signs Your Brakes Need Attention</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 February 5, 2026</p>
-                <p style="margin-bottom: 15px;">Don't ignore these warning signs! Learn when your brakes need professional inspection and repair to keep you safe on Tulsa roads.</p>
-                <a href="/blog/brake-maintenance-tips" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
-            
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/spring-car-maintenance" style="text-decoration: none; color: inherit;">Spring Car Maintenance Checklist for Oklahoma Drivers</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 January 28, 2026</p>
-                <p style="margin-bottom: 15px;">Get your vehicle ready for spring with this comprehensive maintenance checklist tailored for Oklahoma's unique weather conditions.</p>
-                <a href="/blog/spring-car-maintenance" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
-            
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/ac-problems-solutions" style="text-decoration: none; color: inherit;">Car AC Not Working? Common Problems and Solutions</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 January 20, 2026</p>
-                <p style="margin-bottom: 15px;">Oklahoma summers are brutal. Learn the most common AC problems and how to get your cool air flowing again.</p>
-                <a href="/blog/ac-problems-solutions" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
-            
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/honda-acura-maintenance-schedule" style="text-decoration: none; color: inherit;">Honda & Acura Maintenance Schedule: What You Need to Know</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 January 12, 2026</p>
-                <p style="margin-bottom: 15px;">Follow the recommended maintenance schedule to keep your Honda or Acura running smoothly for years to come.</p>
-                <a href="/blog/honda-acura-maintenance-schedule" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
-            
-            <article class="blog-card" style="background: white; border: 2px solid var(--border-color); padding: 30px;">
-                <h3 style="color: var(--dark-blue); margin-bottom: 15px;">
-                    <a href="/blog/choosing-auto-repair-shop" style="text-decoration: none; color: inherit;">How to Choose the Right Auto Repair Shop in Tulsa</a>
-                </h3>
-                <p style="color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 10px;">📅 January 5, 2026</p>
-                <p style="margin-bottom: 15px;">Not all mechanics are created equal. Learn what to look for when choosing an auto repair shop you can trust.</p>
-                <a href="/blog/choosing-auto-repair-shop" style="color: var(--primary-blue); font-weight: 600;">Read More →</a>
-            </article>
+           <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                {% for post in site.posts %}
+                <div class="blog-card">
+                  
+
+                
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+                            {% if post.category %}
+                            <span><i class="fa-solid fa-tag"></i> {{ post.category }}</span>
+                            {% endif %}
+                        </div>
+                        <h3 class="blog-title">{{ post.title }}</h3>
+                        <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                        <a href="{{ post.url }}" class="read-more">
+                            Read More <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
             
         </div>
     </div>
