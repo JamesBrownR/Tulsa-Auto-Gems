@@ -1,1 +1,30 @@
+# Gallery Images for Tulsa Auto Gems
+# Each image should have src, alt text for SEO
 
+images:
+  - src: 'Pics/Tulsa-Auto-Gems1.png'
+    alt: 'Bilstein front suspension shock with yellow and blue coil spring installed on vehicle at Tulsa Auto Gems'
+    
+  - src: 'Pics/Tulsa-Auto-Gems2.png'
+    alt: 'Engine transmission mount and oil pan area during automotive repair service in Tulsa'
+    
+  - src: 'Pics/Tulsa-Auto-Gems3.png'
+    alt: 'Tulsa Auto Gems auto repair shop exterior with sales and service garage door'
+    
+  - src: 'Pics/Tulsa-Auto-Gems4.png'
+    alt: 'New replacement CV axle shafts with boots ready for installation at Tulsa repair shop'
+    
+  - src: 'Pics/Tulsa-Auto-Gems5.png'
+    alt: 'White Honda Accord front end after collision repair and headlight restoration in Tulsa'
+    
+  - src: 'Pics/Tulsa-Auto-Gems6.png'
+    alt: 'Bilstein performance suspension shock absorber with yellow coil spring installation on vehicle'
+    
+  - src: 'Pics/Tulsa-Auto-Gems7.png'
+    alt: 'Engine timing belt and pulley system during timing belt replacement service'
+    
+  - src: 'Pics/Tulsa-Auto-Gems8.png'
+    alt: 'Red Chevrolet pickup truck lifted on automotive lift for undercarriage repair in Tulsa'
+    
+  - src: '/Pics/Tulsa-Auto-Gems9.png'
+    alt: 'Bilstein rear shock absorbers with blue and yellow protective boots for suspension upgrade'
