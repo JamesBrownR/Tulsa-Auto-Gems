@@ -3,6 +3,16 @@ title: "Tulsa Auto Gems - Expert Auto Repair"
 description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acura, Toyota, Lexus. Expert mechanical repairs, timing belts, brakes, tune-ups & more."
 url: "https://www.tulsaautogems.com"
 baseurl: "/"
+# Build settings
+markdown: kramdown
+permalink: pretty
+permalink: /:year/:month/:day/:title/
+
+
+future: false #hides future blogs
+# Enable Liquid processing in markdown files
+kramdown:
+  parse_block_html: true
 future: false
 # Business information
 phone: "(918) 814-9030"
