@@ -133,42 +133,32 @@ description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acur
                 <p style="color: var(--dark-gray); margin-bottom: 20px; font-size: 0.95rem;">
                     This message goes directly to the owner's email
                 </p>
-
-                <form action="https://formspree.io/f/xjkqbnpn" method="POST">
+                <form action="https://formspree.io/f/mjkvnnyp" method="POST">
                     <div class="form-group">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-
                     <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
-
                     <div class="form-group">
                         <label for="message">Message *</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
 
             <div class="business-info">
-                <h3>Business Information</h3>
+                <h3>Visit Us</h3>
                 <div class="info-item">
-                    <strong>📍 Address</strong>
-                    <p>
-                        <a href="{{ site.social.google_maps }}" target="_blank" style="color: var(--primary-blue); text-decoration: none;">
-                            {{ site.address.street }}<br>
-                            {{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}
-                        </a>
-                    </p>
+                    <strong>📍 Location</strong>
+                    <p>{{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}</p>
                 </div>
 
                 <div class="info-item">
@@ -199,7 +189,55 @@ description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acur
 </section>
 
 <script>
+// Load data from Jekyll data files using Liquid
+const images = [
+    {% for image in site.data.gallery.images %}
+    { src: '{{ image.src }}', alt: '{{ image.alt }}' }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+];
 
+const reviews = [
+    {% for review in site.data.reviews.reviews %}
+    { 
+        name: {{ review.name | jsonify }}, 
+        rating: {{ review.rating }}, 
+        body: {{ review.body | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+];
+
+// Gallery functionality
+let currentImagesShown = 0;
+const imagesPerLoad = 6;
+
+function renderImages(startIndex, count) {
+    const grid = document.getElementById('galleryGrid');
+    const endIndex = Math.min(startIndex + count, images.length);
+    
+    for (let i = startIndex; i < endIndex; i++) {
+        const image = images[i];
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.onclick = () => openLightbox(image.src);
+        item.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+        grid.appendChild(item);
+    }
+    
+    currentImagesShown = endIndex;
+    
+    const btn = document.getElementById('showMoreGalleryBtn');
+    if (currentImagesShown < images.length) {
+        btn.classList.remove('hidden');
+    } else {
+        btn.classList.add('hidden');
+    }
+}
+
+function showMoreImages() {
+    renderImages(currentImagesShown, imagesPerLoad);
+}
+
+// Reviews functionality
 let currentReviewsShown = 0;
 const reviewsPerLoad = 6;
 
