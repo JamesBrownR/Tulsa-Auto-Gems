@@ -1,0 +1,97 @@
+# FAQ Data for Tulsa Auto Gems
+# Used to generate FAQ schema markup and FAQ sections on pages
+
+general:
+  - question: "What types of vehicles do you specialize in?"
+    answer: "We specialize in Honda, Acura, Toyota, and Lexus vehicles. Our technicians have extensive experience with these brands and understand their specific maintenance needs and common issues."
+  
+  - question: "How long does a typical repair take?"
+    answer: "Repair time varies by service. Oil changes take 30-45 minutes, brake service 1-2 hours, and timing belt replacement 4-7 hours depending on your vehicle model. We'll provide an accurate time estimate when you schedule."
+  
+  - question: "Do you use OEM or aftermarket parts?"
+    answer: "We primarily use OEM-quality or better parts to ensure reliability and longevity. For some repairs, we offer aftermarket options if you prefer, but we'll always explain the difference in quality and warranty coverage."
+  
+  - question: "What warranty do you offer on repairs?"
+    answer: "We offer warranty coverage on both parts and labor. Specific warranty terms vary by service and parts used. We'll explain the warranty coverage for your specific repair before beginning work."
+  
+  - question: "Can you provide a written estimate before starting work?"
+    answer: "Yes, we always provide detailed written estimates before starting any repair work. If we discover additional issues during the repair, we'll contact you for approval before proceeding."
+  
+  - question: "Do you offer loaner vehicles or shuttle service?"
+    answer: "Please call us at (918) 814-9030 to discuss transportation options for your specific service needs."
+  
+  - question: "What are your hours of operation?"
+    answer: "We're open Monday through Friday from 9:00 AM to 5:00 PM. We're closed on weekends. Call (918) 814-9030 to schedule an appointment."
+  
+  - question: "How often should I service my vehicle?"
+    answer: "Follow your vehicle's maintenance schedule, typically including oil changes every 5,000-7,500 miles, tire rotations every 5,000-7,500 miles, and major services at 30,000, 60,000, 90,000, and 100,000 mile intervals."
+
+timing_belt:
+  - question: "When should I replace my timing belt?"
+    answer: "Honda and Acura vehicles typically need timing belt replacement at 60,000-100,000 miles. Toyota and Lexus vehicles generally require replacement at 60,000-90,000 miles. Always check your owner's manual for your specific vehicle's interval. Also replace every 7-10 years regardless of mileage, as rubber deteriorates over time."
+  
+  - question: "What happens if my timing belt breaks?"
+    answer: "In interference engines (common in Honda, Acura, and many Toyota models), a broken timing belt causes pistons and valves to collide, resulting in bent valves, damaged pistons, cylinder head damage, and potential complete engine failure. Repair costs can be $3,000-$6,000 or more."
+  
+  - question: "Do I really need to replace the water pump with the timing belt?"
+    answer: "Yes, we strongly recommend it. 90% of the labor overlaps with timing belt replacement. Water pumps typically fail at similar mileage. If the pump fails 10,000 miles later, you'll pay for the same labor twice. Replacing both now costs $200-300 more, versus $600-800 later for just the water pump."
+  
+  - question: "How long does timing belt replacement take?"
+    answer: "Timing belt replacement takes 4-7 hours depending on your vehicle. V6 engines take longer than 4-cylinder engines. Some models require removing engine mounts or other major components."
+  
+  - question: "What's included in your timing belt service?"
+    answer: "Our complete timing belt service includes: new timing belt, new tensioner and pulleys, new water pump, new crankshaft seal, new camshaft seal(s), new thermostat, fresh coolant, and serpentine belt inspection. We replace all wear items at once to prevent future issues."
+  
+  - question: "Can I replace just the belt and skip other parts?"
+    answer: "Not recommended. An old tensioner may fail and destroy the new belt. Worn pulleys cause premature belt wear. Old seals can leak oil onto the new belt, causing failure. You'll end up paying for the same labor again soon, making it more expensive in the long run."
+  
+  - question: "My car has a timing chain - do I need this service?"
+    answer: "No scheduled replacement for timing chains. However, timing chains still need periodic inspection. Chains can stretch over time, and tensioners and guides can wear out. Listen for rattling noise on startup. Some chains do eventually need replacement at 150,000+ miles."
+  
+  - question: "How do I know if my engine is an interference engine?"
+    answer: "Most Honda, Acura, Toyota, and Lexus engines are interference engines. Some older 4-cylinder Toyotas (pre-2000) are non-interference. Check your owner's manual or call us to verify for your specific model. When in doubt, assume it's an interference engine."
+
+brakes:
+  - question: "How often should I replace my brake pads?"
+    answer: "Brake pads typically last 30,000-70,000 miles depending on driving conditions and habits. City driving and stop-and-go traffic wear brakes faster. Have your brakes inspected at every oil change to catch wear early."
+  
+  - question: "What are the signs I need new brakes?"
+    answer: "Warning signs include: squealing or grinding noises, vibration when braking, brake pedal feels soft or spongy, pulling to one side when braking, brake warning light on, or needing to press pedal harder than normal."
+  
+  - question: "Should I replace rotors with brake pads?"
+    answer: "It depends on rotor condition. If rotors are too thin, warped, or deeply grooved, they must be replaced. If rotors are in good condition and within specifications, they can be resurfaced or left as-is. We'll measure and inspect your rotors and recommend the best option."
+  
+  - question: "How long does brake service take?"
+    answer: "Brake pad replacement typically takes 1-2 hours. If rotors need replacement or if we're doing a complete brake system service including fluid replacement, it may take 2-3 hours."
+
+ac_service:
+  - question: "Why isn't my AC blowing cold air?"
+    answer: "Common causes include: low refrigerant (leak in system), failed compressor, clogged expansion valve or orifice tube, failed blend door actuator, or electrical issues. We'll diagnose the specific cause and provide repair options."
+  
+  - question: "How often should I service my AC system?"
+    answer: "Have your AC system inspected annually, ideally in spring before summer heat. This includes checking refrigerant levels, inspecting for leaks, testing system performance, and replacing the cabin air filter every 12,000-15,000 miles."
+  
+  - question: "Why does my AC smell musty?"
+    answer: "A musty smell usually indicates mold growing on the evaporator, which is common in humid climates and when AC runs frequently. Solutions include evaporator treatment and running the fan for a few minutes after turning off AC to dry the evaporator."
+  
+  - question: "How much does AC repair cost?"
+    answer: "Costs vary by repair needed: refrigerant recharge $150-$300, compressor replacement $800-$1,500, evaporator replacement $800-$1,200, condenser replacement $400-$900, leak detection and repair $150-$400. We'll diagnose the issue and provide an accurate estimate."
+  
+  - question: "Can I recharge my AC myself?"
+    answer: "While DIY recharge kits exist, we don't recommend them. They can overcharge the system, don't address leaks, may use incorrect refrigerant, and won't fix the underlying problem. Professional service includes leak detection and proper system diagnosis."
+
+maintenance:
+  - question: "How often should I change my oil?"
+    answer: "For Honda, Acura, Toyota, and Lexus vehicles, follow the Maintenance Minder system or change oil every 5,000-7,500 miles. Severe conditions (short trips, extreme temperatures, towing) require more frequent changes. Always use the correct oil grade for your vehicle."
+  
+  - question: "What's included in a tune-up?"
+    answer: "A complete tune-up includes: spark plug replacement, ignition coil inspection/replacement, air filter replacement, fuel filter replacement (if applicable), fuel system cleaning, throttle body cleaning, and computer diagnostic scan to check for issues."
+  
+  - question: "When should I replace my transmission fluid?"
+    answer: "Honda and Acura: every 30,000 miles for most models. Toyota and Lexus: every 30,000-60,000 miles depending on model. Some newer vehicles claim 'lifetime' fluid, but we recommend service every 60,000 miles for longevity."
+  
+  - question: "Do I really need to follow the maintenance schedule?"
+    answer: "Yes. Regular maintenance prevents $2,000-$5,000 repairs, maintains resale value, ensures reliability, improves fuel economy, and extends vehicle life to 200,000-300,000 miles. Prevention is always cheaper than repair."
+  
+  - question: "What's the difference between 30k, 60k, and 90k service?"
+    answer: "30k service: oil, filters, tire rotation, brake inspection, fluid checks. 60k service: adds transmission fluid, coolant flush, spark plugs, timing belt (some models). 90k service: repeat of 60k services plus additional inspections and replacements as needed."
