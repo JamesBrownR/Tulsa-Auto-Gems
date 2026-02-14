@@ -34,14 +34,38 @@
     
     <!-- Navigation Styles -->
     <style>
+        /* Top Phone Bar */
+        .top-bar {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 12px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1001;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+        }
+
         /* Navigation Bar */
         nav {
             background: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
-            top: 45px;
-            z-index: 999;
+            top: 44px;
+            z-index: 1000;
         }
 
         .nav-container {
@@ -86,6 +110,10 @@
             color: var(--primary-blue);
         }
 
+        .phone-cta {
+            display: none;
+        }
+
         /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
@@ -99,6 +127,11 @@
 
         /* Mobile Navigation */
         @media (max-width: 768px) {
+            .top-bar {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
             nav {
                 top: 40px;
             }
@@ -140,7 +173,7 @@
 
         /* Adjust hero section for nav */
         .hero {
-            margin-top: 105px !important;
+            margin-top: 104px !important;
         }
 
         @media (max-width: 768px) {
@@ -201,18 +234,20 @@
     </script>
 </head>
 <body>
-   
+    <!-- Top Phone Bar -->
+    <div class="top-bar">
+        <a href="tel:{{ site.phone_link }}">📞 {{ site.phone }} - Call Now</a>
+    </div>
 
     <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="{{ '/' | relative_url }}">
-                    <img src="{{ '/Tulsa-Auto-Gems.png' | relative_url }}" style="min-height:90px;" alt="Tulsa Auto Gems Logo">
+                    <img src="{{ '/Tulsa-Auto-Gems.png' | relative_url }}" alt="Tulsa Auto Gems Logo">
                 </a>
             </div>
 
-            
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
                 ☰
             </button>
@@ -224,14 +259,7 @@
                 <li><a href="{{ '/#reviews' | relative_url }}">Reviews</a></li>
                 <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
             </ul>
-
-            <div>
-        <a href="tel:{{ site.phone_link }}">📞 {{ site.phone }} - Call Now</a>
-    </div>
         </div>
-
-         <!-- Top Phone Bar -->
-    
     </nav>
 
     <!-- Main Content -->
