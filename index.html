@@ -199,64 +199,6 @@ description: "Family-owned auto repair shop in Tulsa specializing in Honda, Acur
 </section>
 
 <script>
-// Gallery Images Array
-const galleryImages = [
-    { src: 'Pics/Tulsa-Auto-Gems1.png', alt: 'Bilstein front suspension shock with yellow and blue coil spring installed on vehicle at Tulsa Auto Gems' },
-    { src: 'Pics/Tulsa-Auto-Gems2.png', alt: 'Engine transmission mount and oil pan area during automotive repair service in Tulsa' },
-    { src: 'Pics/Tulsa-Auto-Gems3.png', alt: 'Tulsa Auto Gems auto repair shop exterior with sales and service garage door' },
-    { src: 'Pics/Tulsa-Auto-Gems4.png', alt: 'New replacement CV axle shafts with boots ready for installation at Tulsa repair shop' },
-    { src: 'Pics/Tulsa-Auto-Gems5.png', alt: 'White Honda Accord front end after collision repair and headlight restoration in Tulsa' },
-    { src: 'Pics/Tulsa-Auto-Gems6.png', alt: 'Bilstein performance suspension shock absorber with yellow coil spring installation on vehicle' },
-    { src: 'Pics/Tulsa-Auto-Gems7.png', alt: 'Engine timing belt and pulley system during timing belt replacement service' },
-    { src: 'Pics/Tulsa-Auto-Gems8.png', alt: 'Red Chevrolet pickup truck lifted on automotive lift for undercarriage repair in Tulsa' },
-    { src: '/Pics/Tulsa-Auto-Gems9.png', alt: 'Bilstein rear shock absorbers with blue and yellow protective boots for suspension upgrade' }
-];
-
-let currentImagesShown = 0;
-const imagesPerLoad = 6;
-
-function renderImages(startIndex, count) {
-    const grid = document.getElementById('galleryGrid');
-    const endIndex = Math.min(startIndex + count, galleryImages.length);
-    
-    for (let i = startIndex; i < endIndex; i++) {
-        const image = galleryImages[i];
-        
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        item.onclick = function() { openLightbox(image.src); };
-        item.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
-        grid.appendChild(item);
-    }
-    
-    currentImagesShown = endIndex;
-    
-    const btn = document.getElementById('showMoreGalleryBtn');
-    const remaining = galleryImages.length - currentImagesShown;
-    
-    if (remaining > 0) {
-        btn.classList.remove('hidden');
-        const nextBatch = Math.min(remaining, imagesPerLoad);
-        btn.textContent = `Show ${nextBatch} More Image${nextBatch > 1 ? 's' : ''} (${remaining} total)`;
-    } else {
-        btn.classList.add('hidden');
-    }
-}
-
-function showMoreImages() {
-    renderImages(currentImagesShown, imagesPerLoad);
-}
-
-// Reviews Data Array
-const reviews = [
-    { "name": "David Nasr", "rating": 5, "body": "Omar is a good dude! I am always a little skeptical when taking vehicles to a shop, worried I will be sold stuff I don't need. This is not the case with Tulsa Auto Gems. They sent me pictures as the work … More" },
-    { "name": "Shawn Johnson", "rating": 5, "body": "These guys are the best. Very intuitive, courteous and professional. You want someone that knows what they're doing and do it right, you won't be disappointed. I've had them work on several of my cars and will continue to give them my business. More" },
-    { "name": "Paul Jennings", "rating": 5, "body": "The guys seem to be honest or quick did a great job on my air conditioner and my headlights I would go back to them again" },
-    { "name": "Jimmy Franklin", "rating": 5, "body": "Great experience very nice guys honest work for honest price" },
-    { "name": "Kody", "rating": 5, "body": "" },
-    { "name": "4gservice 2", "rating": 5, "body": "I am very impressed with this shop. I have had them work on both our cars. Very happy. We will be back. Thank you" },
-    { "name": "Richard Winton", "rating": 5, "body": "Fast high quality workmanship." }
-];
 
 let currentReviewsShown = 0;
 const reviewsPerLoad = 6;
