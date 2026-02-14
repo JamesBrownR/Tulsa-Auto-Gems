@@ -45,10 +45,10 @@
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
         }
@@ -88,7 +88,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-left: -5rem;
         }
 
         .nav-phone a {
@@ -184,6 +183,137 @@
         body > section:first-of-type:not(.hero) {
             padding-top: 120px;
         }
+
+        /* Improved Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ddd;
+            line-height: 1.8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-hours {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-services {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-services li {
+            margin-bottom: 10px;
+        }
+
+        .footer-services li a {
+            color: #ddd;
+        }
+
+        .footer-services li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 8px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-credit {
+            margin-top: 15px;
+            font-size: 0.75rem;
+        }
+
+        .footer-credit a {
+            color: #5BA3C7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-hours li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
     
     <!-- Schema.org Structured Data -->
@@ -244,6 +374,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
                 <li><a href="{{ '/services/' | relative_url }}" {% if page.url contains '/services/' %}class="active"{% endif %}>Services</a></li>
+                <li><a href="{{ '/areas/' | relative_url }}" {% if page.url contains '/areas/' %}class="active"{% endif %}>Areas</a></li>
                 <li><a href="{{ '/#gallery' | relative_url }}">Gallery</a></li>
                 <li><a href="{{ '/#reviews' | relative_url }}">Reviews</a></li>
                 <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
@@ -264,19 +395,90 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Tulsa Auto Gems. All Rights Reserved.</p>
-            <div class="footer-links">
-                <a href="{{ site.social.google_maps }}" target="_blank">Google Maps</a>
-                <a href="{{ site.social.facebook }}" target="_blank">Facebook</a>
-                <a href="{{ site.social.yelp }}" target="_blank">Yelp</a>
-                <a href="{{ site.social.mapquest }}" target="_blank">MapQuest</a>
-                <a href="tel:{{ site.phone_link }}">Call Us</a>
-                <a href="{{ '/#contact' | relative_url }}">Contact</a>
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>Tulsa Auto Gems</h3>
+                <p>Family-owned auto repair shop specializing in Honda, Acura, Toyota, and Lexus vehicles since 2004.</p>
+                <p style="margin-top: 15px;">Expert mechanical repairs with honest service and quality parts.</p>
+                <div class="footer-social">
+                    <a href="{{ site.social.google_maps }}" target="_blank" title="Find us on Google Maps">📍</a>
+                    <a href="{{ site.social.facebook }}" target="_blank" title="Like us on Facebook">👍</a>
+                    <a href="{{ site.social.yelp }}" target="_blank" title="Review us on Yelp">⭐</a>
+                </div>
             </div>
-            <p style="margin-top: 20px; font-size: 0.9rem;">Family-Owned • Expert Service • Quality Guaranteed</p>
-            <p style="margin-top: 10px; font-size: 0.8rem;">Expert auto repair serving Tulsa, Broken Arrow, Bixby, Jenks, and surrounding Oklahoma areas. Specializing in Honda, Acura, Toyota, and Lexus maintenance and repair.</p>
-            <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7; margin-top: 10px; font-size: 0.7rem;">Made by MeetingSurge.com</a>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-info">
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:{{ site.phone_link }}">{{ site.phone }}</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📧</span>
+                        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📍</span>
+                        <a href="{{ site.social.google_maps }}" target="_blank">
+                            {{ site.address.street }}<br>
+                            {{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <ul class="footer-hours">
+                    <li><span>Monday</span><span>9:00 AM - 5:00 PM</span></li>
+                    <li><span>Tuesday</span><span>9:00 AM - 5:00 PM</span></li>
+                    <li><span>Wednesday</span><span>9:00 AM - 5:00 PM</span></li>
+                    <li><span>Thursday</span><span>9:00 AM - 5:00 PM</span></li>
+                    <li><span>Friday</span><span>9:00 AM - 5:00 PM</span></li>
+                    <li><span>Saturday</span><span>Closed</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-services">
+                    <li><a href="{{ '/services/timing-belt/' | relative_url }}">Timing Belt Service</a></li>
+                    <li><a href="{{ '/services/brakes/' | relative_url }}">Brake Repair</a></li>
+                    <li><a href="{{ '/services/suspension/' | relative_url }}">Suspension Work</a></li>
+                    <li><a href="{{ '/services/ac/' | relative_url }}">AC Repair</a></li>
+                    <li><a href="{{ '/services/electrical/' | relative_url }}">Electrical Systems</a></li>
+                    <li><a href="{{ '/services/engine-performance/' | relative_url }}">Engine Performance</a></li>
+                </ul>
+            </div>
+
+            <!-- Areas We Serve -->
+            <div class="footer-section">
+                <h3>Areas We Serve</h3>
+                <ul class="footer-services">
+                    <li><a href="{{ '/areas/broken-arrow/' | relative_url }}">Broken Arrow</a></li>
+                    <li><a href="{{ '/areas/bixby/' | relative_url }}">Bixby</a></li>
+                    <li><a href="{{ '/areas/jenks/' | relative_url }}">Jenks</a></li>
+                    <li><a href="{{ '/areas/owasso/' | relative_url }}">Owasso</a></li>
+                    <li><a href="{{ '/areas/sand-springs/' | relative_url }}">Sand Springs</a></li>
+                    <li><a href="{{ '/areas/sapulpa/' | relative_url }}">Sapulpa</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tulsa Auto Gems. All Rights Reserved.</p>
+            <p>Expert auto repair serving Tulsa, Broken Arrow, Bixby, Jenks, Owasso, and surrounding areas.</p>
+            <p>Specializing in Honda, Acura, Toyota, and Lexus maintenance and repair.</p>
+            <p class="footer-credit">
+                <a href="https://www.meetingsurge.com" target="_blank">Website by MeetingSurge</a>
+            </p>
         </div>
     </footer>
 
@@ -306,3 +508,136 @@
     </script>
 </body>
 </html>
+
+<!-- Updated Footer Section - Replace existing footer -->
+<style>
+/* Improved Footer */
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 50px 20px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #ddd;
+    line-height: 1.8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-hours {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-hours li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-services {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-services li {
+    margin-bottom: 10px;
+}
+
+.footer-services li a {
+    color: #ddd;
+}
+
+.footer-services li a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-social a {
+    display: inline-block;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-credit {
+    margin-top: 15px;
+    font-size: 0.75rem;
+}
+
+.footer-credit a {
+    color: #5BA3C7;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-hours li {
+        font-size: 0.9rem;
+    }
+}
+</style>
