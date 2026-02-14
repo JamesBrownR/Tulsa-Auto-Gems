@@ -30,7 +30,130 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ 'Tulsa-Auto-Gems.ico' | relative_url }}">
     
-  <style>  {% include style.html %} </style>
+    <style>{% include style.html %}</style>
+    
+    <!-- Navigation Styles -->
+    <style>
+        /* Navigation Bar */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 45px;
+            z-index: 999;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            height: 60px;
+            padding: 5px 0;
+        }
+
+        .nav-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 20px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            nav {
+                top: 40px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links li a {
+                padding: 15px 20px;
+            }
+
+            .nav-logo {
+                height: 50px;
+            }
+        }
+
+        /* Adjust hero section for nav */
+        .hero {
+            margin-top: 105px !important;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 90px !important;
+            }
+        }
+
+        /* Non-hero pages need spacing too */
+        body > section:first-of-type:not(.hero) {
+            padding-top: 140px;
+        }
+    </style>
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -83,6 +206,29 @@
         <a href="tel:{{ site.phone_link }}">📞 {{ site.phone }} - Call Now</a>
     </div>
 
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ '/' | relative_url }}">
+                    <img src="{{ '/Pics/Tulsa-Auto-Gems.png' | relative_url }}" alt="Tulsa Auto Gems Logo">
+                </a>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                ☰
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ '/services/' | relative_url }}" {% if page.url contains '/services/' %}class="active"{% endif %}>Services</a></li>
+                <li><a href="{{ '/#gallery' | relative_url }}">Gallery</a></li>
+                <li><a href="{{ '/#reviews' | relative_url }}">Reviews</a></li>
+                <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Main Content -->
     {{ content }}
 
@@ -96,7 +242,7 @@
                 <a href="{{ site.social.yelp }}" target="_blank">Yelp</a>
                 <a href="{{ site.social.mapquest }}" target="_blank">MapQuest</a>
                 <a href="tel:{{ site.phone_link }}">Call Us</a>
-                <a href="{{ '/contact' | relative_url }}">Contact</a>
+                <a href="{{ '/#contact' | relative_url }}">Contact</a>
             </div>
             <p style="margin-top: 20px; font-size: 0.9rem;">Family-Owned • Expert Service • Quality Guaranteed</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">Expert auto repair serving Tulsa, Broken Arrow, Bixby, Jenks, and surrounding Oklahoma areas. Specializing in Honda, Acura, Toyota, and Lexus maintenance and repair.</p>
@@ -104,5 +250,30 @@
         </div>
     </footer>
 
+    <!-- Navigation JavaScript -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close menu when window is resized to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
