@@ -1,0 +1,30 @@
+{% comment %}
+FAQ Schema Include
+Usage: {% include faq-schema.html faq_section="general" %}
+Available sections: general, timing_belt, brakes, ac_service, maintenance
+{% endcomment %}
+
+{% if include.faq_section %}
+  {% assign faqs = site.data.faqs[include.faq_section] %}
+{% else %}
+  {% assign faqs = site.data.faqs.general %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question | escape }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer | escape }}"
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
